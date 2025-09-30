@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📸 Instagram Profile Viewer</h1>
+            <p>Enter an Instagram username to view their profile, posts, and reels</p>
+        </header>
+
+        <!-- Username Input Section -->
+        <div class="input-section">
+            <form id="usernameForm" class="username-form">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="usernameInput" 
+                        placeholder="Enter Instagram username (without @)" 
+                        required
+                        autocomplete="off"
+                    >
+                    <button type="submit" id="fetchBtn" class="fetch-btn">
+                        <span class="btn-text">Fetch Fresh Data</span>
+                        <span class="loading-spinner" style="display: none;">⏳</span>
+                    </button>
+                    <button type="button" id="fetchFromDbBtn" class="fetch-btn db-btn">
+                        <span class="btn-text">📊 Load from Database</span>
+                        <span class="loading-spinner" style="display: none;">⏳</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingSection" class="loading-section" style="display: none;">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p>Fetching profile data...</p>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorSection" class="error-section" style="display: none;">
+            <div class="error-content">
+                <h3>❌ Error</h3>
+                <p id="errorMessage"></p>
+                <button onclick="clearError()" class="retry-btn">Try Again</button>
+            </div>
+        </div>
+
+        <!-- Profile Display Section -->
+        <div id="profileSection" class="profile-section" style="display: none;">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-info">
+                    <img id="profileImage" src="" alt="Profile Picture" class="profile-image">
+                    <div class="profile-details">
+                        <h2 id="profileName"></h2>
+                        <p id="profileUsername" class="username"></p>
+                        <p id="profileBio" class="bio"></p>
+                        <div class="stats">
+                            <div class="stat">
+                                <span class="stat-number" id="postsCount"></span>
+                                <span class="stat-label">Posts</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="followersCount"></span>
+                                <span class="stat-label">Followers</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="followingCount"></span>
+                                <span class="stat-label">Following</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toggle Section -->
+            <div class="toggle-section">
+                <div class="toggle-buttons">
+                    <button id="postsTab" class="toggle-btn active">Posts</button>
+                    <button id="reelsTab" class="toggle-btn">Reels</button>
+                    <button id="analyticsTab" class="toggle-btn">Analytics</button>
+                </div>
+
+                <!-- Posts Section -->
+                <div id="postsSection" class="content-section active">
+                    <h3>Recent Posts</h3>
+                    <div id="postsGrid" class="posts-grid">
+                        <!-- Posts will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Reels Section -->
+                <div id="reelsSection" class="content-section">
+                    <h3>Recent Reels</h3>
+                    <div id="reelsGrid" class="posts-grid">
+                        <!-- Reels will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div id="analyticsSection" class="content-section">
+                    <h3>Profile Analytics</h3>
+                    <div id="analyticsContent" class="analytics-content">
+                        <!-- Analytics will be populated here -->
+                    </div>
+                    <div id="analyticsGraphs" class="analytics-graphs">
+                        <!-- Graphs will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
