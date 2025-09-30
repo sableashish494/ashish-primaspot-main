@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Profile Viewer</title>
+    <title>Instagram Influencer</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <h1>📸 Instagram Profile Viewer</h1>
-            <p>Enter an Instagram username to view their profile, posts, and reels</p>
+            <h1>📸 Instagram Influencer</h1>
+            <p>Explore any Instagram profile with posts & reels</p>
         </header>
 
         <!-- Username Input Section -->
@@ -25,14 +25,16 @@
                         required
                         autocomplete="off"
                     >
+                    <div class="button-group">
                     <button type="submit" id="fetchBtn" class="fetch-btn">
-                        <span class="btn-text">Fetch Fresh Data</span>
+                        <span class="btn-text">Fetch Data</span>
                         <span class="loading-spinner" style="display: none;">⏳</span>
                     </button>
                     <button type="button" id="fetchFromDbBtn" class="fetch-btn db-btn">
-                        <span class="btn-text">📊 Load from Database</span>
+                        <span class="btn-text">Load Database</span>
                         <span class="loading-spinner" style="display: none;">⏳</span>
                     </button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -108,14 +110,78 @@
 
                 <!-- Analytics Section -->
                 <div id="analyticsSection" class="content-section">
+                    <!-- Profile Summary Analytics -->
+<div class="profile-summary-analytics">
+  <h3 class="section-title">Profile Summary Analytics</h3>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="summary-icon" style="color: #e63946;">❤️</span>
+      <p class="summary-label">Total Likes</p>
+      <h2 id="totalLikes">1.2K</h2>
+    </div>
+    <div class="summary-item">
+      <span class="summary-icon" style="color: #457b9d;">💬</span>
+      <p class="summary-label">Total Comments</p>
+      <h2 id="totalComments">300</h2>
+    </div>
+    <div class="summary-item">
+      <span class="summary-icon" style="color: #1d4ed8;">👍</span>
+      <p class="summary-label">Avg Likes/Comments</p>
+      <h2><span id="avgLikes">150</span> / <span id="avgComments">38</span></h2>
+    </div>
+    <div class="summary-item">
+      <span class="summary-icon" style="color: #22c55e;">📊</span>
+      <p class="summary-label">Engagement Rate</p>
+      <h2 id="engagementRate">12.5%</h2>
+    </div>
+  </div>
+</div>
+
                     <h3>Profile Analytics</h3>
                     <div id="analyticsContent" class="analytics-content">
                         <!-- Analytics will be populated here -->
+                    <!-- Post Analytics -->
+        <div class="card post-analytics">
+            <h4>Post Analytics</h4>
+            <div class="metrics-row">
+                <div id="totalPosts"></div>
+                <div id="avgLikes"></div>
+                <div id="avgComments"></div>
+            </div>
+            <canvas id="postChart"></canvas>
+        </div>
+
+        <!-- Reels Analytics -->
+        <div class="card reels-analytics">
+            <h4>Reels Analytics</h4>
+            <div class="metrics-row">
+                <div id="totalReels"></div>
+                <div id="avgReelsViews"></div>
+                <div id="avgReelsLikes"></div>
+                <div id="avgReelsComments"></div>
+            </div>
+            <canvas id="reelsChart"></canvas>
+        </div>
+
+        <!-- Engagement Insight -->
+        <div class="card engagement-insight">
+            <h4>Engagement Insight</h4>
+            <div class="metrics-row">
+                <div id="engagementRate"></div>
+                <div id="topPost"></div>
+                <div id="topReel"></div>
+            </div>
+            <canvas id="engagementChart"></canvas>
+        </div>
+                    
+                    
                     </div>
                     <div id="analyticsGraphs" class="analytics-graphs">
                         <!-- Graphs will be populated here -->
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>

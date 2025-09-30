@@ -1,16 +1,29 @@
-require('dotenv').config();
 const mongoose = require('mongoose');
-
-const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://sableashish32_db_user:YVfx1APhKSbgBDnP@scraper.pfmfqsz.mongodb.net/?retryWrites=true&w=majority&appName=Scraper'; // should now point to localhost
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(mongoURI);
-        console.log('✅ Local MongoDB connected!');
+        const mongoURI ='mongodb+srv://herodb:Pranjal18@cluster0fortelebot.ihjua.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0fortelebot';
+        
+        const conn = await mongoose.connect(mongoURI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+
+        console.log(`🗄️  MongoDB Connected: ${conn.connection.host}`);
+        return conn;
     } catch (error) {
-        console.error('❌ Cannot connect to MongoDB:', error.message);
-        throw error;
+        console.error('❌ Database connection error:', error.message);
+        process.exit(1);
     }
 };
 
-module.exports = { connectDB };
+const disconnectDB = async () => {
+    try {
+        await mongoose.connection.close();
+        console.log('🔌 MongoDB Disconnected');
+    } catch (error) {
+        console.error('❌ Database disconnection error:', error.message);
+    }
+};
+
+module.exports = { connectDB, disconnectDB };
