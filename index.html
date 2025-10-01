@@ -8,24 +8,22 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>📸 Instagram Influencer</h1>
-            <p>Explore any Instagram profile with posts & reels</p>
-        </header>
+  <div class="card">
+    <h1>📸 Instagram Influencer</h1>
+    
 
-        <!-- Username Input Section -->
-        <div class="input-section">
-            <form id="usernameForm" class="username-form">
-                <div class="input-group">
-                    <input 
-                        type="text" 
-                        id="usernameInput" 
-                        placeholder="Enter Instagram username (without @)" 
-                        required
-                        autocomplete="off"
-                    >
-                    <div class="button-group">
+    <!-- Username Input Section -->
+    <div class="input-section">
+        <form id="usernameForm" class="username-form">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="usernameInput" 
+                    placeholder="Enter Instagram username (without @)" 
+                    required
+                    autocomplete="off"
+                >
+                <div class="button-group">
                     <button type="submit" id="fetchBtn" class="fetch-btn">
                         <span class="btn-text">Fetch Data</span>
                         <span class="loading-spinner" style="display: none;">⏳</span>
@@ -34,10 +32,12 @@
                         <span class="btn-text">Load Database</span>
                         <span class="loading-spinner" style="display: none;">⏳</span>
                     </button>
-                    </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
+    </div>
+</div>
+
 
         <!-- Loading State -->
         <div id="loadingSection" class="loading-section" style="display: none;">
