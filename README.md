@@ -1,4 +1,4 @@
-# 📸 Instagram Profile Viewer
+#  Instagram Influencer
 
 A comprehensive web application for viewing Instagram profiles, posts, and reels with advanced analytics and database integration. Built with modern web technologies and featuring a clean, responsive UI.
 
